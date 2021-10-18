@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2021 Carlos Ros <cros@praxya.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+	<record id="phone_import_map_format_form" model="ir.ui.view">
+		<field name="name">phone.import.map.format.form.view</field>
+		<field name="model">phone.import.map.format</field>
+		<field name="arch" type="xml">
+			<form string="Phone Import Map">
+				<sheet>
+					<group>
+						<field name="name" required="True"/>
+						<field name="text_format" required="True"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="phone_import_map_tree_form" model="ir.ui.view">
+		<field name="name">phone.import.map.format.tree.view</field>
+		<field name="model">phone.import.map.format</field>
+		<field name="arch" type="xml">
+			<tree string="Phone Import Map">
+				<field name="name" required="True"/>
+				<field name="text_format" required="True"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="phone_import_map_format_action" model="ir.actions.act_window">
+		<field name="name">Phone Import Map</field>
+		<field name="res_model">phone.import.map.format</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+				Click for create a new phone map to import file.
+			</p>
+		</field>
+	</record>
+
+	<menuitem id="phone_import_map_format_menuitem"
+		name="Phone Import Map Format"
+		parent="phone_import_map_parent_menuitem"
+		action="phone_import_map_format_action"
+		groups="account.group_account_manager"
+		sequence="20"/>
+
+</odoo>

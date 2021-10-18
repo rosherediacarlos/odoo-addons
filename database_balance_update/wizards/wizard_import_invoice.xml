@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2021 Carlos Ros <cros@praxya.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <data>
+        <record id="wizard_update_balance_data_form_view" model="ir.ui.view">
+            <field name="name">wizard.update.balance.data.form.view</field>
+            <field name="model">wizard.update.balance.data</field>
+            <field name="arch" type="xml">
+                <form string="Obtener datos de las balanzas">
+                    <sheet>
+                        <group>
+							<field name="date_start" required="True"/>
+							<field name="date_end" required="True"/>
+                            <field name="warehouse_id" required="True"/>
+                            <field name="type" widget="radio" required="True"/>
+                            <field name="balance_id" attrs="{'invisible': [('type', '=', 'all')], 'required': [('type', '=', 'one')]}"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Descargar datos" name="start_import_balance_data" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window
+                id="wizard_update_balance_data_action"
+                multi="True"
+                name="Importar Productos"
+                res_model="wizard.update.balance.data"
+                target="new"
+                view_mode="form"
+                view_type="form"
+                src_model="wizard.update.balance.data"
+        />
+
+        <menuitem id="wizard_update_balance_data_menuitem"
+                  name="Cerrar Basculas"
+                  parent="balanzas.balanzas_root"
+                  action="wizard_update_balance_data_action"
+                  sequence="1000"/>
+
+    </data>
+</odoo>

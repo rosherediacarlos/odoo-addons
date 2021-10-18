@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2021 Carlos Ros  <cros@praxya.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+	<menuitem
+        id="menu_pos_session_balance"
+        parent="balanzas.balanzas_root"
+        action="point_of_sale.action_pos_session"
+        sequence="2"
+		name="Sessiones"
+        groups="base.group_system"/>
+	
+	<menuitem
+        id="menu_pos_order_balance"
+        parent="balanzas.balanzas_root"
+        action="point_of_sale.action_pos_pos_form"
+        sequence="2"
+		name="Pedidos"
+        groups="base.group_system"/>
+    
+</odoo>

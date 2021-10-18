@@ -1,0 +1,41 @@
+<odoo>
+    <data noupdate="1">
+
+        <!-- Invoice telefonica sequence -->
+        <record id="ir_sequence_telefonica" model="ir.sequence">
+            <field name="name">Telefónica</field>
+            <field name="implementation">no_gap</field>
+            <field name="active" eval="True"/>
+            <field name="prefix">GS/%(range_year)s/</field>
+            <field name="use_date_range" eval="True"/>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!-- re-invoice telefonica sequence -->
+        <record id="ir_sequence_rectificativa_telefonica_secuencia" model="ir.sequence">
+            <field name="name">Rectificativa Secuencia</field>
+            <field name="implementation">no_gap</field>
+            <field name="active" eval="True"/>
+            <field name="prefix">RE/%(range_year)s/</field>
+            <field name="use_date_range" eval="True"/>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <!-- Diario Facturas de cliente Gasolinera -->
+        <record id="account_jorunal_customer_telefonica" model="account.journal">
+            <field name="name">Facturas de cliente Telefonica</field>
+            <field name="type">sale</field>
+            <field name="code">PHONE</field>
+            <field name="sequence_number_next">1</field>
+            <field name="sequence_id" ref="atzeneta_import_phone_invoice_wizard.ir_sequence_telefonica"/>
+            <field name="invoice_sequence_id" ref="atzeneta_import_phone_invoice_wizard.ir_sequence_telefonica"/>
+            <field name="refund_inv_sequence_id" ref="atzeneta_import_phone_invoice_wizard.ir_sequence_rectificativa_telefonica_secuencia"/>
+            <field name="account_analytic_id" ref="atzeneta_import_invoice_wizard.account_analytic_account_phone_and_service"/>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="update_posted" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

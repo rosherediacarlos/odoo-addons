@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+(c) 2021 Carlos Ros  <cros@praxya.es>
+ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+ 
+-->
+<odoo>
+  <data noupdate="0">
+	<record model="product.pricelist" id="product_pricelist_pos">
+		<field name="name">Tarifa Balanzas</field>
+		<field name="website_id" ref="website.default_website"/>
+		<field name="selectable" eval="True"/>
+	</record>
+  </data>
+</odoo>

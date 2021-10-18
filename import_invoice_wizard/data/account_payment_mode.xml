@@ -1,0 +1,100 @@
+<odoo>
+    <data noupdate="1">
+    <!-- tarjeta, dinero/bono, credito, impagada, medio_de_pago-->
+        <!-- Modo de pago tarjeta -->
+        <record id="account_payment_mode_medio_de_pago" model="account.payment.mode">
+            <field name="name">Medio de pago</field>
+            <field name="active" eval="True"/>
+            <field name="payment_method_id" ref="account.account_payment_method_manual_out"/>
+            <field name="payment_order_ok" eval="True"/>
+            <field name="bank_account_link">fixed</field>
+            <field name="fixed_journal_id" eval="account_jorunal_cliente_gasolinera"/>
+            <field name="group_lines" eval="True"/>
+            <field name="default_payment_mode">same</field>
+            <field name="default_target_move">posted</field>
+            <field name="default_date_type">due</field>
+            <field name="generate_move" eval="True"/>
+            <field name="offsetting_account">bank_account</field>
+            <field name="move_option">date</field>
+            <field name="post_move" eval="True"/>
+            <field name="show_bank_account">full</field>
+        </record>
+
+        <!-- Modo de pago tarjeta -->
+        <record id="account_payment_mode_impagada" model="account.payment.mode">
+            <field name="name">Impagada</field>
+            <field name="active" eval="True"/>
+            <field name="payment_method_id" ref="account.account_payment_method_manual_out"/>
+            <field name="payment_order_ok" eval="True"/>
+            <field name="bank_account_link">fixed</field>
+            <field name="fixed_journal_id" eval="account_jorunal_cliente_gasolinera"/>
+            <field name="group_lines" eval="True"/>
+            <field name="default_payment_mode">same</field>
+            <field name="default_target_move">posted</field>
+            <field name="default_date_type">due</field>
+            <field name="generate_move" eval="True"/>
+            <field name="offsetting_account">bank_account</field>
+            <field name="move_option">date</field>
+            <field name="post_move" eval="True"/>
+            <field name="show_bank_account">full</field>
+        </record>
+
+        <!-- Modo de pago tarjeta -->
+        <record id="account_payment_mode_credito" model="account.payment.mode">
+            <field name="name">Crédito</field>
+            <field name="active" eval="True"/>
+            <field name="payment_method_id" ref="account.account_payment_method_manual_out"/>
+            <field name="payment_order_ok" eval="True"/>
+            <field name="bank_account_link">fixed</field>
+            <field name="fixed_journal_id" eval="account_jorunal_cliente_gasolinera"/>
+            <field name="group_lines" eval="True"/>
+            <field name="default_payment_mode">same</field>
+            <field name="default_target_move">posted</field>
+            <field name="default_date_type">due</field>
+            <field name="generate_move" eval="True"/>
+            <field name="offsetting_account">bank_account</field>
+            <field name="move_option">date</field>
+            <field name="post_move" eval="True"/>
+            <field name="show_bank_account">full</field>
+        </record>
+
+        <!-- Modo de pago tarjeta -->
+        <record id="account_payment_mode_tarjeta" model="account.payment.mode">
+            <field name="name">Tarjeta</field>
+            <field name="active" eval="True"/>
+            <field name="payment_method_id" ref="account.account_payment_method_manual_out"/>
+            <field name="payment_order_ok" eval="True"/>
+            <field name="bank_account_link">fixed</field>
+            <field name="fixed_journal_id" eval="account_jorunal_cliente_gasolinera"/>
+            <field name="group_lines" eval="True"/>
+            <field name="default_payment_mode">same</field>
+            <field name="default_target_move">posted</field>
+            <field name="default_date_type">due</field>
+            <field name="generate_move" eval="True"/>
+            <field name="offsetting_account">bank_account</field>
+            <field name="move_option">date</field>
+            <field name="post_move" eval="True"/>
+            <field name="show_bank_account">full</field>
+        </record>
+
+        <!-- Modo de pago dinero/bono -->
+        <record id="account_payment_mode_dinero_bono" model="account.payment.mode">
+            <field name="name">Dinero/Bono</field>
+            <field name="active" eval="True"/>
+            <field name="payment_method_id" ref="account.account_payment_method_manual_out"/>
+            <field name="payment_order_ok" eval="True"/>
+            <field name="bank_account_link">fixed</field>
+            <field name="fixed_journal_id" eval="account_jorunal_cliente_gasolinera"/>
+            <field name="group_lines" eval="True"/>
+            <field name="default_payment_mode">same</field>
+            <field name="default_target_move">posted</field>
+            <field name="default_date_type">due</field>
+            <field name="generate_move" eval="True"/>
+            <field name="offsetting_account">bank_account</field>
+            <field name="move_option">date</field>
+            <field name="post_move" eval="True"/>
+            <field name="show_bank_account">full</field>
+        </record>
+
+    </data>
+</odoo>

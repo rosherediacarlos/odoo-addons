@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2019 Carlos Ros  <cros@praxya.com>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <template id="report_trial_balance_base_hide_account_at_0" inherit_id="account_financial_report.report_trial_balance_account_footer">
+        <xpath expr="//div[@class='act_as_cell left']" position="replace">
+            <div class="act_as_cell left" style="width: 46.3%;">
+                <t t-set="res_model" t-value="'account.account'"/>
+                <span>
+                    <a t-att-data-active-id="account.account_id.id"
+                       t-att-data-res-model="res_model"
+                       class="o_account_financial_reports_web_action"
+                       t-att-style="style">
+                        <t t-att-style="style" t-raw="account.code"/> - <t t-att-style="style" t-raw="account.name"/></a>
+                </span>
+            </div>
+        </xpath>
+    </template>
+</odoo>
+

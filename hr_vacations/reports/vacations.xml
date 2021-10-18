@@ -1,0 +1,135 @@
+<odoo>
+    <report id="hr_vacations_report"
+        model="hr.vacations.report.wizard"
+        string="Informe turnos de vacaciones"
+        report_type="qweb-pdf"
+        name="hr_vacations.hr_vacations_report_view"
+        paperformat="hr_vacations.paperformat_hr_vacations_report"
+        menu="False"/>
+
+    <template id="hr_vacations_report_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <style>
+                    table {
+                    border-collapse: collapse;
+                    display:inline-block;
+                    empty-cells: show;
+                    }
+                    table, td, th {
+                    border: 1px solid black;
+                    }
+                    </style>
+                    <t t-foreach="o.turnos_vacaciones" t-as="turno">
+                        <!-- <div>
+                            <span>TURNO Nº <span t-field="turno.turno" /></span>
+                            <br />
+                            <span t-field="turno.fecha_start" />-<span t-field="turno.fecha_end" />
+                            <br />
+                            <t t-foreach="turno.employee_ids" t-as="empleado">
+                                <span t-field="empleado.name" />
+                                <br />
+                            </t>
+                        </div> -->
+                        <table>
+                            <tr>
+                                <th style="background-color:lightgray">TURNO Nº <span t-field="turno.turno" /></th>
+                            </tr>
+                            <tr>
+                                <td style="background-color:lightgray"><span t-field="turno.fecha_start" /> al <span t-field="turno.fecha_end" /></td>
+                            </tr>
+                            <t t-foreach="turno.employee_ids" t-as="empleado">
+                                <tr>
+                                    <td><span t-field="empleado.name" /></td>
+                                </tr>
+                            </t>
+                            <t t-value="7 - len(turno.employee_ids)" t-set="huecos"/>
+                            <t t-foreach="huecos" t-as="hueco">
+                                <tr>
+                                    <td style="text-align:center">X</td>
+                                </tr>
+                            </t>
+                        </table>
+                        <table>
+                            <tr>
+                                <th style="background-color:lightgray">TURNO Nº <span t-field="turno.turno" /></th>
+                            </tr>
+                            <tr>
+                                <td style="background-color:lightgray"><span t-field="turno.fecha_start" /> al <span t-field="turno.fecha_end" /></td>
+                            </tr>
+                            <t t-foreach="turno.employee_ids" t-as="empleado">
+                                <tr>
+                                    <td><span t-field="empleado.name" /></td>
+                                </tr>
+                            </t>
+                            <t t-value="7 - len(turno.employee_ids)" t-set="huecos"/>
+                            <t t-foreach="huecos" t-as="hueco">
+                                <tr>
+                                    <td style="text-align:center">X</td>
+                                </tr>
+                            </t>
+                        </table>
+                        <table>
+                            <tr>
+                                <th style="background-color:lightgray">TURNO Nº <span t-field="turno.turno" /></th>
+                            </tr>
+                            <tr>
+                                <td style="background-color:lightgray"><span t-field="turno.fecha_start" /> al <span t-field="turno.fecha_end" /></td>
+                            </tr>
+                            <t t-foreach="turno.employee_ids" t-as="empleado">
+                                <tr>
+                                    <td><span t-field="empleado.name" /></td>
+                                </tr>
+                            </t>
+                            <t t-value="7 - len(turno.employee_ids)" t-set="huecos"/>
+                            <t t-foreach="huecos" t-as="hueco">
+                                <tr>
+                                    <td style="text-align:center">X</td>
+                                </tr>
+                            </t>
+                        </table>
+                        <table>
+                            <tr>
+                                <th style="background-color:lightgray">TURNO Nº <span t-field="turno.turno" /></th>
+                            </tr>
+                            <tr>
+                                <td style="background-color:lightgray"><span t-field="turno.fecha_start" /> al <span t-field="turno.fecha_end" /></td>
+                            </tr>
+                            <t t-foreach="turno.employee_ids" t-as="empleado">
+                                <tr>
+                                    <td><span t-field="empleado.name" /></td>
+                                </tr>
+                            </t>
+                            <t t-value="7 - len(turno.employee_ids)" t-set="huecos"/>
+                            <t t-foreach="huecos" t-as="hueco">
+                                <tr>
+                                    <td style="text-align:center">X</td>
+                                </tr>
+                            </t>
+                        </table>
+                        <table>
+                            <tr>
+                                <th style="background-color:lightgray">TURNO Nº <span t-field="turno.turno" /></th>
+                            </tr>
+                            <tr>
+                                <td style="background-color:lightgray"><span t-field="turno.fecha_start" /> al <span t-field="turno.fecha_end" /></td>
+                            </tr>
+                            <t t-foreach="turno.employee_ids" t-as="empleado">
+                                <tr>
+                                    <td><span t-field="empleado.name" /></td>
+                                </tr>
+                            </t>
+                            <t t-value="7 - len(turno.employee_ids)" t-set="huecos"/>
+                            <t t-foreach="huecos" t-as="hueco">
+                                <tr>
+                                    <td style="text-align:center">X</td>
+                                </tr>
+                            </t>
+                        </table>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

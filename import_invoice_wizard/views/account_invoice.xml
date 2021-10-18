@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2021 Carlos Ros  <cros@praxya.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).*-
+-->
+<odoo>
+    <data>
+        <!-- Tree view-->
+        <record id="atzeneta_import_invoice_wizard_tree_view" model="ir.ui.view">
+            <field name="name">atzeneta.import.invoice.wizard.tree.view</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree" />
+            <field name="arch" type="xml">
+                <field name="state" position="before">
+                    <field name="import_date"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- Form view -->
+        <record id="atzeneta_import_invoice_wizard_form_view" model="ir.ui.view">
+            <field name="name">atzeneta.import.invoice.wizard.form.view</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form" />
+            <field name="arch" type="xml">
+                <field name="date_due" position="after">
+                    <field name="import_date"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- search view -->
+        <record id="atzeneta_import_invoice_wizard_search_view" model="ir.ui.view">
+            <field name="name">atzeneta.import.invoice.wizard.search.view</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter" />
+            <field name="arch" type="xml">
+                <xpath expr="//group[1]" position="inside">
+                    <separator/>
+                    <filter string="Fecha importación" context="{'group_by':'import_date:month'}" name="import_date"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

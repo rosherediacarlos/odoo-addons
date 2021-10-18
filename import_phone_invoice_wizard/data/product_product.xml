@@ -1,0 +1,156 @@
+<odoo>
+    <data noupdate="1">
+        <record id="product_product_multilinea" model="product.product">
+            <field name="name">CUOTA TP NUMERO PROPIOS MULTILINEA</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="sale_ok" eval="True"/>
+            <field name="purchase_ok" eval="True"/>
+			<field name="is_telephone_rate_product" eval="True"/>
+			<field name="default_code">99001</field>
+            <field name="list_price">5.0</field>
+        </record>
+
+		<record id="product_product_plana_coop_15" model="product.product">
+            <field name="name">TARIFA PLANA COOP 15</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="sale_ok" eval="True"/>
+            <field name="purchase_ok" eval="True"/>
+			<field name="is_telephone_rate_product" eval="True"/>
+			<field name="default_code">99006</field>
+            <field name="list_price">12.40</field>
+        </record>
+
+		<record id="product_product_plana_coop_20" model="product.product">
+            <field name="name">TARIFA PLANA COOP 20</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="sale_ok" eval="True"/>
+            <field name="purchase_ok" eval="True"/>
+			<field name="is_telephone_rate_product" eval="True"/>
+			<field name="default_code">99007</field>
+            <field name="list_price">16.53</field>
+        </record>
+
+		<record id="product_product_plana_coop_25" model="product.product">
+            <field name="name">TARIFA PLANA COOP 25</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="sale_ok" eval="True"/>
+            <field name="purchase_ok" eval="True"/>
+			<field name="is_telephone_rate_product" eval="True"/>
+            <field name="list_price">20.66</field>
+        </record>
+
+		<record id="product_product_plana_coop_35" model="product.product">
+            <field name="name">TARIFA PLANA COOP 35</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="sale_ok" eval="True"/>
+            <field name="purchase_ok" eval="True"/>
+			<field name="is_telephone_rate_product" eval="True"/>
+            <field name="list_price">20.66</field>
+        </record>
+
+		<record id="product_product_fibra_1" model="product.product">
+            <field name="name">TARIFA PROMOFIBRA 1</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="sale_ok" eval="True"/>
+            <field name="purchase_ok" eval="True"/>
+			<field name="is_telephone_rate_product" eval="True"/>
+			<field name="default_code">99041</field>
+            <field name="list_price">10.33</field>
+        </record>
+
+		<record id="product_product_fibra_2" model="product.product">
+            <field name="name">TARIFA PROMOFIBRA 2</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="sale_ok" eval="True"/>
+            <field name="purchase_ok" eval="True"/>
+			<field name="is_telephone_rate_product" eval="True"/>
+			<field name="default_code">99042</field>
+            <field name="list_price">14.79</field>
+        </record>
+
+		<record id="product_product_fibra_3" model="product.product">
+            <field name="name">TARIFA PROMOFIBRA 3</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="sale_ok" eval="True"/>
+            <field name="purchase_ok" eval="True"/>
+			<field name="is_telephone_rate_product" eval="True"/>
+			<field name="default_code">99050</field>
+            <field name="list_price">24.78</field>
+        </record>
+
+		<record id="product_product_pack_fibra" model="product.product">
+            <field name="name">PACK FIBRA</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="sale_ok" eval="True"/>
+            <field name="purchase_ok" eval="True"/>
+			<field name="is_telephone_rate_product" eval="True"/>
+			<field name="default_code">99022</field>
+            <field name="list_price">55</field>
+        </record>
+
+		<record id="product_product_pack_adsl2" model="product.product">
+            <field name="name">PACK ADSL2 (ADSL+ TP15)</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="sale_ok" eval="True"/>
+            <field name="purchase_ok" eval="True"/>
+			<field name="is_telephone_rate_product" eval="True"/>
+			<field name="default_code">99011</field>
+            <field name="list_price">49</field>
+        </record>
+
+		<record id="product_product_servicio_llamdas" model="product.product">
+            <field name="name">Servicio llamadas telefónicas</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="sale_ok" eval="True"/>
+            <field name="purchase_ok" eval="True"/>
+			<field name="is_telephone_rate_product" eval="True"/>
+			<field name="default_code">99002</field>
+            <field name="list_price">0.0</field>
+        </record>
+
+    </data>
+</odoo>

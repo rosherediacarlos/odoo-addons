@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2021 Praxya - Miquel March <mmarch@praxya.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <data>
+        <record id="hr_vacations_year_form_view" model="ir.ui.view">
+            <field name="name">hr.vacations.year.form.view</field>
+            <field name="model">hr.vacations.year</field>
+            <field name="arch" type="xml">
+                <form>
+					<group>
+						<field name="year"/>
+					</group>
+					<notebook>
+						<page string="Turnos" name="turns">
+							<field name="turn_ids">
+								<form string="Turnos">
+									<group>
+										<group>
+											<field name="turno"/>
+											<field name="fecha_start"/>
+											<field name="fecha_end"/>
+											<field name="dias"/>
+										</group>
+									</group>
+								</form>
+								<tree string="Turnos" editable="bottom">
+									<field name="turno"/>
+									<field name="fecha_start"/>
+									<field name="fecha_end"/>
+									<field name="dias"/>
+								</tree>
+							</field>
+						</page>
+					</notebook>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_vacations_year_tree_view" model="ir.ui.view">
+            <field name="name">hr.vacations.year.tree.view</field>
+            <field name="model">hr.vacations.year</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hr_vacations_year" model="ir.actions.act_window">
+            <field name="name">Gestion turnos vacaciones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.vacations.year</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="action_menu_hr_vacations_year"
+                  name="Gestion turnos vacaciones"
+                  sequence="20"
+                  parent="hr_holidays.menu_hr_holidays_approvals"
+                  action="action_hr_vacations_year"
+        />
+    </data>
+</odoo>

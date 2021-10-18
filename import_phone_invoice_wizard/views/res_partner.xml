@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2021 Carlos Ros  <cros@praxya.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).*-
+-->
+<odoo>
+    <data>
+        
+        <!-- Form view -->
+        <record id="res_partner_telephone_rate_list_form_view" model="ir.ui.view">
+            <field name="name">res.partner.telephone.rate.list.form.view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+					<page name="phone_list" string="Telephone rate list">
+						<field name="phone_list_ids">
+							<form string="Telephone rate list">
+								<sheet>
+									<group>
+										<group>
+											<field name="partner_id" invisible="1"/>
+											<field name="phone" widget="phone" required="1"/>
+											<field name="product_id" required="1"/>
+										</group>
+									</group>
+								</sheet>
+							</form>
+							<tree editable="bottom">
+								<field name="partner_id" invisible="1"/>
+								<field name="phone" widget="phone" required="1"/>
+								<field name="product_id" required="1"/>
+							</tree>
+						</field>
+					</page>
+				</xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

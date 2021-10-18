@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+hr_vacations_hr_holidays_group_hr_holidays_manager_model_hr_vacations,hr.vacations.hr.holidays.group.hr.holidays.manager.model.hr.vacations,hr_vacations.model_hr_vacations,hr_holidays.group_hr_holidays_manager,1,1,1,1
+hr_vacations_turn_hr_holidays_group_hr_holidays_manager_model_hr_vacations_turn,hr.vacations.turn.hr.holidays.group.hr.holidays.manager.model.hr.vacations,hr_vacations.model_hr_vacations_turn,hr_holidays.group_hr_holidays_manager,1,1,1,1
+hr_vacations_year_hr_holidays_group_hr_holidays_manager_model_hr_vacations_year,hr.vacations.year.hr.holidays.group.hr.holidays.manager.model.hr.vacations,hr_vacations.model_hr_vacations_year,hr_holidays.group_hr_holidays_manager,1,1,1,1

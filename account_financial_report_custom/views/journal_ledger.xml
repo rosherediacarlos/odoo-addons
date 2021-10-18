@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2019 Carlos Ros  <cros@praxya.com>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <!-- Añadir primera linea -->
+    <template id="account_financial_report_journal_all_with_total" inherit_id="account_financial_report.report_journal_all">
+        <t t-call="account_financial_report.report_journal_ledger_journal_table_header" position="before">
+            <t t-call="account_financial_report_custom.report_journal_ledger_journal_first_line_all"/>
+        </t>
+    </template>
+
+    <!-- Primera linea para no grupos -->
+    <template id="account_financial_report_custom.report_journal_ledger_journal_first_line_all">
+        <div class="act_as_row lines">
+            <div class="act_as_cell"
+                 name="entry"/>
+            <div class="act_as_cell"
+                 name="date"/>
+            <div class="act_as_cell"
+                 name="account"/>
+            <div class="act_as_cell"
+                 name="partner"/>
+            <div class="act_as_cell"
+                 name="label"/>
+            <div class="act_as_cell"
+                 name="taxes"/>
+            <div class="act_as_cell amount"
+                 name="debit">
+                <b><span t-esc="'%.2f'% sum(x.debit for x in o.report_journal_ledger_ids)"/></b>
+            </div>
+            <div class="act_as_cell amount"
+                 name="credit">
+                <b><span t-esc="'%.2f'% sum(x.debit for x in o.report_journal_ledger_ids)"/></b>
+            </div>
+            <t t-if="display_currency">
+                <div class="act_as_cell"
+                     name="currency_name">
+                </div>
+                <div class="act_as_cell amount"
+                     name="amount_currency">
+                </div>
+            </t>
+        </div>
+        <div style="width: 100%"/>
+    </template>
+</odoo>
+

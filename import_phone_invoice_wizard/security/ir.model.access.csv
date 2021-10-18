@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acces_res_partner_phone_manager,access.res_partner_phone_manager,model_res_partner_phone,account.group_account_manager,1,1,1,1
+acces_res_partner_phone_user,access.res_partner_phone_user,model_res_partner_phone,base.group_public,1,0,0,0
+acces_phone_import_map_manager,access.phone_import_map_manager,model_phone_import_map,account.group_account_manager,1,1,1,1
+acces_phone_import_map_user,access.phone_import_map_user,model_phone_import_map,base.group_public,1,0,0,0
+acces_phone_import_map_line_manager,access.phone_import_map_line_manager,model_phone_import_map_line,account.group_account_manager,1,1,1,1
+acces_phone_import_map_line_user,access.phone_import_map_line_user,model_phone_import_map_line,base.group_public,1,0,0,0
+acces_phone_import_map_format_manager,access.phone_import_map_format_manager,model_phone_import_map_format,account.group_account_manager,1,1,1,1
+acces_phone_import_map_format_user,access.phone_import_map_format_user,model_phone_import_map_format,base.group_public,1,0,0,0

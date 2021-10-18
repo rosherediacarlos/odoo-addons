@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2019 Carlos Ros  <cros@praxya.com>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <template id="report_trial_balance_with_total"
+              inherit_id="account_financial_report.report_trial_balance_base">
+        <xpath expr="//div[@class='page']" position="inside">
+            <div class="act_as_table list_table size_text" style="width: 100%;margin-bottom:1%;margin-top:1%">
+                <!-- table header -->
+                <div class="act_as_row labels" style="font-weight: bold;font-size: 13px;">
+                    <div class="act_as_cell" style="width: 46.3%;text-align:left;">Totales</div>
+                    <div class="act_as_cell amount" style="width: 9.64%;">Total Saldo inicial</div>
+                    <div class="act_as_cell amount" style="width: 9.64%;">Total Debe</div>
+                    <div class="act_as_cell amount" style="width: 9.64%;">Total Haber</div>
+                    <div class="act_as_cell amount" style="width: 9.64%;">Total Saldo de periodo</div>
+                    <div class="act_as_cell amount" style="width: 9.64%;">Total Saldo final</div>
+                </div>
+
+                <!-- Total Balance -->
+                <div class="act_as_row labels" style="font-weight: bold;font-size: 13px;">
+
+                    <!--## Account-->
+                    <div class="act_as_cell" style="width: 46.3%;">
+
+                    </div>
+
+                    <!--## Initial balance-->
+                    <div class="act_as_cell amount" style="width: 9.64%;">
+
+                        <!-- Call calculate_total_initial_balance function for Calculate total initial balance-->
+                        <t t-set="total_initial_balance" t-value="o.calculate_total_initial_balance()"/>
+                        <span t-esc="total_initial_balance"
+                              class="o_account_financial_reports_web_action_monetary_multi"
+                              t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+
+                    </div>
+
+                    <!--## Debit-->
+                    <div class="act_as_cell amount" style="width: 9.64%;">
+
+                        <!-- Call calculate_total_debit function for Calculate total debit -->
+                        <t t-set="total_debit" t-value="o.calculate_total_debit()"/>
+                        <span t-esc="total_debit"
+                              class="o_account_financial_reports_web_action_monetary_multi"
+                              t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+
+                    </div>
+
+                    <!--## Credit-->
+                    <div class="act_as_cell amount" style="width: 9.64%;">
+
+                        <!-- Call calculate_total_credit function for Calculate total credit -->
+                        <t t-set="total_credit" t-value="o.calculate_total_credit()"/>
+                        <span t-esc="total_credit"
+                              class="o_account_financial_reports_web_action_monetary_multi"
+                              t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+
+                    </div>
+
+                    <!--## Period Balance -->
+                    <div class="act_as_cell amount" style="width: 9.64%;">
+
+                        <!-- Call calculate_total_period_balance function for Calculate total period balance -->
+                        <t t-set="total_period_balance" t-value="o.calculate_total_period_balance()"/>
+                        <span t-esc="total_period_balance"
+                              class="o_account_financial_reports_web_action_monetary_multi"
+                              t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+                    </div>
+
+                    <!--## Ending balance-->
+                    <div class="act_as_cell amount" style="width: 9.64%;">
+
+                        <!-- Calculate total ending balance (debit - credit) -->
+                        <t t-set="total_ending_balance" t-value="total_initial_balance + total_debit - total_credit"/>
+                        <span t-esc="total_ending_balance"
+                              class="o_account_financial_reports_web_action_monetary_multi"
+                              t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="report_trial_balance_line_filter_analytic"
+              inherit_id="account_financial_report.report_trial_balance_line">
+
+            <!--## Initial balance-->
+            <xpath expr="//div[@class='act_as_cell amount'][1]" position="replace">
+                <div class="act_as_cell amount">
+                    <t t-if="type == 'account_type'">
+                        <t t-if="line.account_id">
+                            <t t-set="domain" t-value="[('account_id', '=', line.account_id.id),
+                                    ('date', '&lt;', o.date_from.strftime('%Y-%m-%d'))]"/>
+
+                            <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('account_id', '=', line.account_id.id),
+                                    ('analytic_account_id','=', o.get_analytic()),
+                                    ('date', '&lt;', o.date_from.strftime('%Y-%m-%d'))]"/>
+                            </t>    
+                            <span>
+                                <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                                <t t-att-style="style" t-raw="line.initial_balance" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></a>
+                            </span>
+                        </t>
+                        <t t-if="line.account_group_id">
+                            <t t-set="domain" t-value="[('account_id', 'in', line.compute_account_ids.ids),
+                                ('date', '&lt;', o.date_from.strftime('%Y-%m-%d'))]"/>
+
+                            <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('account_id', 'in', line.compute_account_ids.ids),
+                                    ('analytic_account_id','=', o.get_analytic()),
+                                    ('date', '&lt;', o.date_from.strftime('%Y-%m-%d'))]"/>
+                            </t>
+                            <span>
+                                <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                                <t t-att-style="style" t-raw="line.initial_balance" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></a>
+                            </span>
+                        </t>
+                    </t>
+                    <t t-if="type == 'partner_type'">
+                        <t t-set="domain" t-value="[('account_id', '=', line.report_account_id.account_id.id),
+                            ('partner_id', '=', line.partner_id.id),
+                            ('date', '&lt;', o.date_from.strftime('%Y-%m-%d'))]"/>
+
+                        <t t-if="o.get_analytic()">
+                            <t t-set="domain" t-value="[('account_id', '=', line.report_account_id.account_id.id),
+                                ('analytic_account_id','=', o.get_analytic()),
+                                ('partner_id', '=', line.partner_id.id),
+                                ('date', '&lt;', o.date_from.strftime('%Y-%m-%d'))]"/>
+                        </t>
+
+                        <span>
+                            <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                            <t t-att-style="style" t-raw="line.initial_balance" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></a>
+                        </span>
+                    </t>
+                </div>
+            </xpath>
+
+            <!--## Debit-->
+            <xpath expr="//div[@class='act_as_cell amount'][2]" position="replace">
+                <div class="act_as_cell amount">
+                    <t t-if="type == 'account_type'">
+                        <t t-if="line.account_id">
+                            <t t-set="domain" t-value="[('account_id', '=', line.account_id.id),                                      
+                                ('date', '&gt;=', line.report_id.date_from.strftime('%Y-%m-%d')),                                      
+                                ('date', '&lt;=', line.report_id.date_to.strftime('%Y-%m-%d')),                                      
+                                ('debit', '&lt;&gt;', 0)]"/>
+
+                            <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('account_id', '=', line.account_id.id),                                      
+                                ('date', '&gt;=', line.report_id.date_from.strftime('%Y-%m-%d')),                                      
+                                ('date', '&lt;=', line.report_id.date_to.strftime('%Y-%m-%d')), 
+                                ('analytic_account_id','=', o.get_analytic()),                                     
+                                ('debit', '&lt;&gt;', 0)]"/>
+                            </t>
+
+                            <span>
+                                <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                                <t t-att-style="style" t-raw="line.debit" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></a>
+                            </span>
+                        </t>
+                        <t t-if="line.account_group_id">
+                            <t t-set="domain" t-value="[('account_id', 'in', line.compute_account_ids.ids),
+                                ('date', '&gt;=', line.report_id.date_from.strftime('%Y-%m-%d')),                                      
+                                ('date', '&lt;=', line.report_id.date_to.strftime('%Y-%m-%d')),                                      
+                                ('debit', '&lt;&gt;', 0)]"/>
+                            
+                            <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('account_id', 'in', line.compute_account_ids.ids),
+                                ('date', '&gt;=', line.report_id.date_from.strftime('%Y-%m-%d')),                                      
+                                ('date', '&lt;=', line.report_id.date_to.strftime('%Y-%m-%d')),
+                                ('analytic_account_id','=', o.get_analytic()),                                       
+                                ('debit', '&lt;&gt;', 0)]"/>
+                            </t>
+
+                            <span>
+                                <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                                <t t-att-style="style" t-raw="line.debit" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></a>
+                            </span>
+                        </t>
+                    </t>
+                    <t t-if="type == 'partner_type'">
+                        <t t-set="domain" t-value="[('account_id', '=', line.report_account_id.account_id.id),                                  ('partner_id', '=', line.partner_id.id),                                  ('date', '&gt;=', line.report_account_id.report_id.date_from.strftime('%Y-%m-%d')),                                  ('date', '&lt;=', line.report_account_id.report_id.date_to.strftime('%Y-%m-%d')),                                  ('debit', '&lt;&gt;', 0)]"/>
+                        <span>
+                            <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                            <t t-att-style="style" t-raw="line.debit" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></a>
+                        </span>
+                    </t>
+                </div>
+            </xpath>
+
+            <!--## Credit-->
+            <xpath expr="//div[@class='act_as_cell amount'][3]" position="replace">
+                <div class="act_as_cell amount">
+                    <t t-if="type == 'account_type'">
+                        <t t-if="line.account_id">
+                            <t t-set="domain" t-value="[('account_id', '=', line.account_id.id),                                      
+                            ('date', '&gt;=', line.report_id.date_from.strftime('%Y-%m-%d')),                                      
+                            ('date', '&lt;=', line.report_id.date_to.strftime('%Y-%m-%d')),                                      
+                            ('credit', '&lt;&gt;', 0)]"/>
+
+                            <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('account_id', '=', line.account_id.id),                                      
+                                    ('date', '&gt;=', line.report_id.date_from.strftime('%Y-%m-%d')),                                      
+                                    ('date', '&lt;=', line.report_id.date_to.strftime('%Y-%m-%d')),
+                                    ('analytic_account_id','=', o.get_analytic()),                                      
+                                    ('credit', '&lt;&gt;', 0)]"/>
+                            </t>
+
+                            <span>
+                                <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                                <t t-att-style="style" t-raw="line.credit" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></a>
+                            </span>
+                        </t>
+                        <t t-if="line.account_group_id">
+                            <t t-set="domain" t-value="[('account_id', 'in', line.compute_account_ids.ids),
+                                ('date', '&gt;=', line.report_id.date_from.strftime('%Y-%m-%d')),                                      
+                                ('date', '&lt;=', line.report_id.date_to.strftime('%Y-%m-%d')),                                      
+                                ('credit', '&lt;&gt;', 0)]"/>
+
+                            <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('account_id', 'in', line.compute_account_ids.ids),
+                                ('date', '&gt;=', line.report_id.date_from.strftime('%Y-%m-%d')),                                      
+                                ('date', '&lt;=', line.report_id.date_to.strftime('%Y-%m-%d')),  
+                                ('analytic_account_id','=', o.get_analytic()),                                     
+                                ('credit', '&lt;&gt;', 0)]"/>     
+                            </t>
+                            <span>
+                                <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                                <t t-att-style="style" t-raw="line.credit" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></a>
+                            </span>
+                        </t>
+                    </t>
+                    <t t-if="type == 'partner_type'">
+                        <t t-set="domain" t-value="[('account_id', '=', line.report_account_id.account_id.id),                                  
+                        ('partner_id', '=', line.partner_id.id),                                  
+                        ('date', '&gt;=', line.report_account_id.report_id.date_from.strftime('%Y-%m-%d')),                                  
+                        ('date', '&lt;=', line.report_account_id.report_id.date_to.strftime('%Y-%m-%d')),                                  
+                        ('credit', '&lt;&gt;', 0)]"/>
+
+                        <t t-if="o.get_analytic()">
+                            <t t-set="domain" t-value="[('account_id', '=', line.report_account_id.account_id.id),                                  
+                                ('partner_id', '=', line.partner_id.id),                                  
+                                ('date', '&gt;=', line.report_account_id.report_id.date_from.strftime('%Y-%m-%d')),                                  
+                                ('date', '&lt;=', line.report_account_id.report_id.date_to.strftime('%Y-%m-%d')), 
+                                ('analytic_account_id','=', o.get_analytic()),                                     
+                                ('credit', '&lt;&gt;', 0)]"/>    
+                        </t>
+
+                        <span>
+                            <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                            <t t-att-style="style" t-raw="line.credit" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></a>
+                        </span>
+                    </t>
+                </div>
+            </xpath>
+
+            <!--## Period balance-->
+            <xpath expr="//div[@class='act_as_cell amount'][4]" position="replace">
+                
+                <div class="act_as_cell amount">
+                    <t t-if="type == 'account_type'">
+                        <t t-if="line.account_id">
+                            <t t-set="domain" t-value="[('account_id', '=', line.account_id.id),                                      
+                            ('date', '&gt;=', line.report_id.date_from.strftime('%Y-%m-%d')),                                      
+                            ('date', '&lt;=', line.report_id.date_to.strftime('%Y-%m-%d'))]"/>
+
+                            <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('account_id', '=', line.account_id.id),                                      
+                                    ('date', '&gt;=', line.report_id.date_from.strftime('%Y-%m-%d')), 
+                                    ('analytic_account_id','=', o.get_analytic()),                                      
+                                    ('date', '&lt;=', line.report_id.date_to.strftime('%Y-%m-%d'))]"/>
+                            </t>
+                            <span>
+                                <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                                <t t-att-style="style" t-raw="line.period_balance" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></a>
+                            </span>
+                        </t>
+                        <t t-if="line.account_group_id">
+                            <t t-set="domain" t-value="[('account_id', 'in', line.compute_account_ids.ids),                                      
+                            ('date', '&gt;=', line.report_id.date_from.strftime('%Y-%m-%d')),                                      
+                            ('date', '&lt;=', line.report_id.date_to.strftime('%Y-%m-%d'))]"/>
+
+                            <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('account_id', 'in', line.compute_account_ids.ids),                                      
+                                    ('date', '&gt;=', line.report_id.date_from.strftime('%Y-%m-%d')),   
+                                    ('analytic_account_id','=', o.get_analytic()),                                   
+                                    ('date', '&lt;=', line.report_id.date_to.strftime('%Y-%m-%d'))]"/>    
+                            </t>
+                            <span>
+                                <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_multi" t-att-style="style">
+                                <t t-att-style="style" t-raw="line.period_balance" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></a>
+                            </span>
+                        </t>
+                    </t>
+                    <t t-if="type == 'partner_type'">
+                        <t t-set="domain" t-value="[('account_id', '=', line.report_account_id.account_id.id),                                  
+                        ('partner_id', '=', line.partner_id.id),                                  
+                        ('date', '&gt;=', line.report_account_id.report_id.date_from.strftime('%Y-%m-%d')),                                  
+                        ('date', '&lt;=', line.report_account_id.report_id.date_to.strftime('%Y-%m-%d'))]"/>
+
+                        <t t-if="o.get_analytic()">
+                            <t t-set="domain" t-value="[('account_id', '=', line.report_account_id.account_id.id),                                  
+                            ('partner_id', '=', line.partner_id.id),                                  
+                            ('date', '&gt;=', line.report_account_id.report_id.date_from.strftime('%Y-%m-%d')), 
+                            ('analytic_account_id','=', o.get_analytic()),                                 
+                            ('date', '&lt;=', line.report_account_id.report_id.date_to.strftime('%Y-%m-%d'))]"/>   
+                        </t>
+
+                        <span>
+                            <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                            <t t-att-style="style" t-raw="line.period_balance" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></a>
+                        </span>
+                    </t>
+                </div>
+            </xpath>
+
+            <!--## Ending balance-->
+            <xpath expr="//div[@class='act_as_cell amount'][5]" position="replace">
+                <div class="act_as_cell amount">
+                    <t t-if="type == 'account_type'">
+                        <t t-if="line.account_id">
+                            <t t-set="domain" t-value="[('account_id', '=', line.account_id.id)]"/>
+                            <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('analytic_account_id','=', o.get_analytic()), 
+                                ('account_id', '=', line.account_id.id)]"/>
+                            </t>
+                            <span>
+                                <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                                <t t-att-style="style" t-raw="line.final_balance" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></a>
+                            </span>
+                        </t>
+                        <t t-if="line.account_group_id">
+                            <t t-set="domain" t-value="[('account_id', 'in', line.compute_account_ids.ids)]"/>
+                            <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('analytic_account_id','=', o.get_analytic()), 
+                                ('account_id', 'in', line.compute_account_ids.ids)]"/>
+                            </t>
+                            <span>
+                                <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                                <t t-att-style="style" t-raw="line.final_balance" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></a>
+                            </span>
+                        </t>
+                    </t>
+                    <t t-if="type == 'partner_type'">
+                        <t t-set="domain" t-value="[('account_id', '=', line.report_account_id.account_id.id),                                  
+                        ('partner_id', '=', line.partner_id.id)]"/>
+
+                        <t t-if="o.get_analytic()">
+                            <t t-set="domain" t-value="[('account_id', '=', line.report_account_id.account_id.id),
+                            ('analytic_account_id','=', o.get_analytic()),                                  
+                            ('partner_id', '=', line.partner_id.id)]"/>
+                        </t>
+                        <span>
+                            <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                            <t t-att-style="style" t-raw="line.final_balance" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></a>
+                        </span>
+                    </t>
+                </div>
+            </xpath>
+
+            <!--## Initial balance cur.-->
+            <!-- <xpath expr="//div[@class='act_as_cell amount'][6]" position="replace">
+                <div class="act_as_cell amount">
+                    <t t-if="type == 'account_type'">
+                        <t t-if="line.account_id">
+                            <t t-set="domain" t-value="[('account_id', '=', line.account_id.id)]"/>
+                            <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('account_id', '=', line.account_id.id),
+                                ('analytic_account_id','=', o.get_analytic())]"/>
+                            </t>
+                            <span>
+                                <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                                <t t-att-style="style" t-raw="line.initial_balance_foreign_currency" t-options="{'widget': 'monetary', 'display_currency': line.currency_id}"/></a>
+                            </span>
+                        </t>
+                        <t t-if="line.account_group_id">
+                            <t t-set="domain" t-value="[('account_id', 'in', line.compute_account_ids.ids)]"/>
+                            <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('account_id', 'in', line.compute_account_ids.ids),
+                                ('analytic_account_id','=', o.get_analytic())]"/>
+                            </t>
+                            <span>
+                                <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                                <t t-att-style="style" t-raw="line.initial_balance_foreign_currency" t-options="{'widget': 'monetary', 'display_currency': line.currency_id}"/></a>
+                            </span>
+                        </t>
+                    </t>
+                    <t t-if="type == 'partner_type'">
+                        <t t-set="domain" t-value="[('account_id', '=', line.report_account_id.account_id.id),                                          
+                        ('partner_id', '=', line.partner_id.id)]"/>
+
+                        <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('account_id', '=', line.report_account_id.account_id.id), 
+                                    ('analytic_account_id','=', o.get_analytic(),                                         
+                                    ('partner_id', '=', line.partner_id.id)]"/>
+                        </t>
+                        <span>
+                            <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                            <t t-att-style="style" t-raw="line.initial_balance_foreign_currency" t-options="{'widget': 'monetary', 'display_currency': line.report_account_id.currency_id}"/></a>
+                        </span>
+                    </t>
+                </div>
+            </xpath> -->
+
+            <!--## Ending balance cur.-->
+            <!-- <xpath expr="//div[@class='act_as_cell amount'][7]" position="replace">
+                <div class="act_as_cell amount">
+                    <t t-if="type == 'account_type'">
+                        <t t-if="line.account_id">
+                            <t t-set="domain" t-value="[('account_id', '=', line.account_id.id)]"/>
+                            <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('account_id', '=', line.account_id.id),
+                                ('analytic_account_id','=', o.get_analytic()]"/>
+                            </t>
+                            <span>
+                                <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                                <t t-att-style="style" t-raw="line.final_balance_foreign_currency" t-options="{'widget': 'monetary', 'display_currency': line.currency_id}"/></a>
+                            </span>
+                        </t>
+                        <t t-if="line.account_group_id">
+                            <t t-set="domain" t-value="[('account_id', 'in', line.compute_account_ids.ids)]"/>
+                            <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('account_id', 'in', line.compute_account_ids.ids),
+                                ('analytic_account_id','=', o.get_analytic()]"/>
+                            </t>
+                            <span>
+                                <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                                <t t-att-style="style" t-raw="line.final_balance_foreign_currency" t-options="{'widget': 'monetary', 'display_currency': line.currency_id}"/></a>
+                            </span>
+                        </t>
+                    </t>
+                    <t t-if="type == 'partner_type'">
+                        <t t-set="domain" t-value="[('account_id', '=', line.report_account_id.account_id.id),                                          
+                        ('partner_id', '=', line.partner_id.id)]"/>
+
+                        <t t-if="o.get_analytic()">
+                                <t t-set="domain" t-value="[('account_id', '=', line.report_account_id.account_id.id),                                          
+                                ('partner_id', '=', line.partner_id.id),
+                                ('analytic_account_id','=', o.get_analytic()]"/>
+                        </t>
+
+                        <span>
+                            <a t-att-data-domain="domain" t-att-data-res-model="'account.move.line'" class="o_account_financial_reports_web_action_monetary_multi" t-att-style="style">
+                            <t t-att-style="style" t-raw="line.final_balance_foreign_currency" t-options="{'widget': 'monetary', 'display_currency': line.report_account_id.currency_id}"/></a>
+                        </span>
+                    </t>
+                </div>
+            </xpath> -->
+
+    </template>
+</odoo>

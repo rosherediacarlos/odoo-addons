@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2021 Praxya - Christian Doñate <cdonate@praxya.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <data>
+        <record id="hr_vacations_report_wizard_form" model="ir.ui.view">
+            <field name="name">hr.vacations.report.wizard.form</field>
+            <field name="model">hr.vacations.report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Informe de los turnos de vacaciones">
+                    <field name="turnos_vacaciones" />
+                    <footer>
+                        <button name="crear_informe" type="object" class="btn btn-primary"
+                                string="Crear"/>
+                        <button type="object" special="cancel"
+                                string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="action_set_invoice_done"
+                    name="Crear informe"
+                    src_model="hr.vacations"
+                    res_model="hr.vacations.report.wizard"
+                    view_type="form" view_mode="form"
+                    key2="client_action_multi" target="new"
+        />
+    </data>
+</odoo>

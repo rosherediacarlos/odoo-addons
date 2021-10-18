@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+(c) 2021 Carlos Ros  <cros@praxya.es>
+ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+ 
+-->
+<odoo>
+  <data noupdate="0">
+	<!-- Cron Para actualizar categorias de productos-->
+    <record forcecreate="True" id="ir_cron_send_product_categories_data" model="ir.cron">
+        <field name="name">Actualiazar categorias en la balanza</field>
+        <field name="model_id" ref="balanzas.model_balanzas_settings"/>
+        <field name="state">code</field>
+        <field name="code">model.send_balance_product_caterogies()</field>
+        <field eval="True" name="active"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="nextcall" eval="datetime.now().replace(day=1) + relativedelta(months=1)"/>
+        <field eval="False" name="doall"/>
+    </record>
+
+	<!-- Cron Para actualizar productos-->
+	<record forcecreate="True" id="ir_cron_send_product_data" model="ir.cron">
+        <field name="name">Actualiazar productos en la balanza</field>
+        <field name="model_id" ref="balanzas.model_balanzas_settings"/>
+        <field name="state">code</field>
+        <field name="code">model.send_balance_product_product()</field>
+        <field eval="True" name="active"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="nextcall" eval="datetime.now().replace(day=1) + relativedelta(months=1)"/>
+        <field eval="False" name="doall"/>
+    </record>
+
+	<!-- Cron Para actualizar tickets de la balanza en Odoo -->
+	<record forcecreate="True" id="ir_cron_generate_so_from_balance" model="ir.cron">
+        <field name="name">Generar pedidos de la balanza</field>
+        <field name="model_id" ref="balanzas.model_balanzas_settings"/>
+        <field name="state">code</field>
+        <field name="code">model.generate_sale_order_from_cron()</field>
+        <field eval="True" name="active"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="nextcall" eval="datetime.now().replace(day=1) + relativedelta(months=1)"/>
+        <field eval="False" name="doall"/>
+    </record>
+  </data>
+</odoo>

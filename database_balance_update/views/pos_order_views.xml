@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2021 Carlos Ros  <cros@praxya.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+	<!-- Tree View-->
+    <record model="ir.ui.view" id="pos_order_custom_tree_view_balance">
+		<field name="name">pos.order.custom.tree.view.balance</field>
+		<field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+		<field name="model">pos.order</field>
+		<field name="arch" type="xml">
+			<xpath expr="//tree" position="attributes">
+				<attribute name="create">1</attribute>
+			</xpath>
+			<field name="name" position="after">
+				<field name="ticket_number"/>
+			</field>			
+		</field>
+	</record>
+
+	<!-- Form View-->
+    <record model="ir.ui.view" id="pos_order_custom_form_view_balance">
+		<field name="name">pos.order.custom.form.view.balance</field>
+		<field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+		<field name="model">pos.order</field>
+		<field name="arch" type="xml">
+			<button name="action_pos_order_invoice" position="attributes">
+				<attribute name="attrs">{'invisible': [('invoice_group', '=', False)]}</attribute>
+			</button>
+			<field name="session_id" position="after">
+				<field name="ticket_number"/>
+			</field>			
+		</field>
+	</record>
+</odoo>

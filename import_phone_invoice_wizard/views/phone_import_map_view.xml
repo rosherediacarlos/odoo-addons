@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2021 Carlos Ros <cros@praxya.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+	<record id="phone_import_map_form" model="ir.ui.view">
+		<field name="name">phone.import.map.form.view</field>
+		<field name="model">phone.import.map</field>
+		<field name="arch" type="xml">
+			<form string="Phone Import Map">
+				<sheet>
+					<group>
+						<field name="name" required="True"/>
+					</group>
+					<separator string="Mapping Lines"/>
+					<field name="import_map_line_ids">
+						<form string="Telephone rate list">
+							<sheet>
+								<group>
+									<group>
+										<field name="import_map_id" invisible="1"/>
+										<field name="name" required="1"/>
+										<field name="length" required="1"/>
+										<field name="value"/>
+									</group>
+									<group>
+										<field name="position" required="1"/>
+										<field name="format_id" required="1"/>
+										<field name="number_repeat"/>
+									</group>
+								</group>
+							</sheet>
+						</form>
+						<tree editable="bottom" default_order="position">
+							<field name="import_map_id" invisible="1"/>
+							<field name="number_repeat"/>
+							<field name="name" required="1"/>
+							<field name="length" required="1"/>
+							<field name="value"/>
+							<field name="position" required="1"/>
+							<field name="format_id" required="1" options="{'no_create': True, 'no_create_edit':True}"/>
+						</tree>
+					</field>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="phone_import_map_tree" model="ir.ui.view">
+		<field name="name">phone.import.map.tree</field>
+		<field name="model">phone.import.map</field>
+		<field name="arch" type="xml">
+			<tree string="Phone Import Map">
+				<field name="name"/>
+				</tree>
+			</field>
+	</record>
+
+	<record id="phone_import_map_action" model="ir.actions.act_window">
+		<field name="name">Phone Import Map</field>
+		<field name="res_model">phone.import.map</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+				Click for create a new phone map to import file.
+			</p>
+		</field>
+	</record>
+
+	<menuitem id="phone_import_map_parent_menuitem"
+				name="Phone map config"
+				parent="account.menu_finance_configuration"
+				groups="account.group_account_manager"
+				sequence="500"/>
+
+	<menuitem id="phone_import_map_menuitem"
+				name="Phone import map"
+				parent="phone_import_map_parent_menuitem"
+				action="phone_import_map_action"
+				groups="account.group_account_manager"
+				sequence="10"/>
+
+</odoo>

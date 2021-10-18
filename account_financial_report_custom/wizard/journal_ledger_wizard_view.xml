@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="journal_ledger_wizard_custom" model="ir.ui.view">
+            <field name="name">journal.ledger.wizard.custom</field>
+            <field name="model">journal.ledger.report.wizard</field>
+            <field name="inherit_id" ref="account_financial_report.journal_ledger_wizard"/>
+            <field name="arch" type="xml"> 
+                <xpath expr="//footer" position="before">
+                    <separator string="Cuenta analitica"/>
+                    <group>
+                        <field name="account_analytic_id" attrs="{'required': [('show_account_child', '=', True)]}"/>
+                        <field name="show_account_child"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>  
+
+</odoo>

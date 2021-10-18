@@ -1,0 +1,28 @@
+<odoo>
+    <data noupdate="1">
+        <record id="phone_import_map_format_char" model="phone.import.map.format">
+            <field name="text_format">Char</field>
+			<field name="name">C</field>
+        </record>
+
+		<record id="phone_import_map_format_number" model="phone.import.map.format">
+            <field name="text_format">Number</field>
+			<field name="name">N</field>
+        </record>
+
+		<record id="phone_import_map_format_date_year" model="phone.import.map.format">
+            <field name="text_format">Date with year</field>
+			<field name="name">AAAAMMDD</field>
+        </record>
+
+		<record id="phone_import_map_format_date_without_year" model="phone.import.map.format">
+            <field name="text_format">Date without year</field>
+			<field name="name">MMDD</field>
+        </record>
+
+		<record id="phone_import_map_format_year" model="phone.import.map.format">
+            <field name="text_format">Hour</field>
+			<field name="name">HHMM</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2021 Carlos Ros <cros@praxya.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <data>
+        <record id="wizard_import_phone_invoice_form_view" model="ir.ui.view">
+            <field name="name">wizard.import.phone.invoice.form.view</field>
+            <field name="model">wizard.import.phone.invoice</field>
+            <field name="arch" type="xml">
+                <form string="Importar Facturas">
+                    <sheet>
+                        <group>
+                            <field name="date_invoice" required="True"/>
+                            <field name="file_data" required="True"/>
+                            <field name="invoice_type" widget="radio"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Importar" name="start_import_invoice" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window
+                id="wizard_import_phone_invoice_action"
+                multi="True"
+                name="Importar Facturas Telefonia"
+                res_model="wizard.import.phone.invoice"
+                target="new"
+                view_mode="form"
+                view_type="form"
+                src_model="wizard.import.invoice"
+        />
+
+        <menuitem id="wizard_import_phone_invoice_menuitem"
+                  name="Importar Facturas Telefonia"
+                  parent="account.menu_finance_receivables"
+                  action="wizard_import_phone_invoice_action"
+                  groups="account_invoice_force_number.group_allow_invoice_force_number"
+                  sequence="1000"/>
+
+    </data>
+</odoo>

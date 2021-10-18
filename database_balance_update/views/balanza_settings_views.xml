@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2021 Carlos Ros  <cros@praxya.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+	<!-- Form View-->
+    <record model="ir.ui.view" id="balanzas_settings_form_pricelist">
+		<field name="name">balanzas.settings.form.pricelist</field>
+		<field name="inherit_id" ref="balanzas.balanza_setting_form"/>
+		<field name="model">balanzas.settings</field>
+		<field name="arch" type="xml">
+			<field name="description" position="before">
+				<field name="pricelist_id"/>
+			</field>
+		</field>
+	</record>
+</odoo>

@@ -1,0 +1,153 @@
+<odoo>
+    <data noupdate="1">
+		 <!-- Secuencia de asientos -->
+        <record id="ir_sequence_asientos_sepa_suministros" model="ir.sequence">
+            <field name="name">Secuencia de asientos Sepa</field>
+            <field name="implementation">standard</field>
+            <field name="active" eval="True"/>
+            <field name="prefix">%(range_year)s/</field>
+            <field name="use_date_range" eval="True"/>
+            <field name="padding">5</field>
+            <field name="number_increment">1</field>
+        </record>
+
+		<!-- Rectificativa Secuencia -->
+        <record id="ir_sequence_rectificativa_rectificativa_secuencia" model="ir.sequence">
+            <field name="name">Rectificativa Secuencia Sepa</field>
+            <field name="implementation">no_gap</field>
+            <field name="active" eval="True"/>
+            <field name="prefix">RE/%(range_year)s/</field>
+            <field name="use_date_range" eval="True"/>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+
+		<record id="res_bank_arquia" model="res.bank">
+            <field name="name">Arquia</field>
+            <field name="lname">Caja De Arquitectos S. Coop. De Credito</field>
+			<field name="code">3183</field>
+			<field name="vat">F08809808</field>
+			<field name="bic">CASDESBBXXX</field>
+			<field name="phone">0934826810</field>
+			<field name="website">www.arquia.es</field>
+			<field name="active" eval="True"/>
+			<field name="street">Cl. Arcs, 1</field>
+			<field name="city">Barcelona</field>
+			<field name="zip">8002</field>
+			<field name="state" ref="base.state_es_b"/>
+			<field name="country" ref="base.es"/>
+        </record>
+
+		<record id="res_partner_bank_sepa_suministros" model="res.partner.bank">
+            <field name="acc_number">ES6331836566982007165224</field>
+            <field name="acc_type">iban</field>
+			<field name="partner_id" ref="base.main_partner"/>
+			<field name="company_id" ref="base.main_partner"/>
+			<field name="bank_id" ref="atz_pos.res_bank_arquia"/>
+        </record>
+
+        <!-- Diario Facturas de SEPA Suministros -->
+        <record id="account_jorunal_compra_sepa_suministros" model="account.journal">
+            <field name="name">Recibo SEPA Suministros</field>
+            <field name="type">bank</field>
+            <field name="code">CSH1</field>
+			<field name="journal_user" eval="True"/>
+            <field name="sequence_number_next">1</field>
+            <field name="sequence_id" ref="atz_pos.ir_sequence_asientos_sepa_suministros"/>
+            <field name="invoice_sequence_id" ref="atz_pos.ir_sequence_asientos_sepa_suministros"/>
+            <field name="refund_inv_sequence_id" ref="atz_pos.ir_sequence_rectificativa_rectificativa_secuencia"/>
+            <field name="currency_id" ref="base.EUR"/>
+			<field name="bank_account_id" ref="atz_pos.res_partner_bank_sepa_suministros"/>
+            <field name="update_posted" eval="True"/>
+        </record>
+
+        <!-- Secuencia de asientos -->
+        <record id="ir_sequence_asientos_cuenta_corriente_suministros" model="ir.sequence">
+            <field name="name">Secuencia de asientos Cuenta Corriente</field>
+            <field name="implementation">standard</field>
+            <field name="active" eval="True"/>
+            <field name="prefix">%(range_year)s/</field>
+            <field name="use_date_range" eval="True"/>
+            <field name="padding">5</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!-- Rectificativa Secuencia -->
+        <record id="ir_sequence_asientos_cuenta_corriente_suministros_rectificativa" model="ir.sequence">
+            <field name="name">Secuencia rectificativa de asientos Cuenta Corriente</field>
+            <field name="implementation">no_gap</field>
+            <field name="active" eval="True"/>
+            <field name="prefix">RE/%(range_year)s/</field>
+            <field name="use_date_range" eval="True"/>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!-- Diario Facturas de Cuenta Corriente Suministros -->
+        <record id="account_jorunal_cuenta_corriente_suministros" model="account.journal">
+            <field name="name">Cuenta Corriente Suministros</field>
+            <field name="type">bank</field>
+            <field name="code">BNK2</field>
+			<field name="journal_user" eval="True"/>
+            <field name="sequence_number_next">1</field>
+            <field name="sequence_id" ref="atz_pos.ir_sequence_asientos_cuenta_corriente_suministros"/>
+            <field name="invoice_sequence_id" ref="atz_pos.ir_sequence_asientos_sepa_suministros"/>
+            <field name="refund_inv_sequence_id" ref="atz_pos.ir_sequence_asientos_cuenta_corriente_suministros_rectificativa"/>
+            <field name="currency_id" ref="base.EUR"/>
+			<field name="bank_account_id" ref="atz_pos.res_partner_bank_sepa_suministros"/>
+            <field name="update_posted" eval="True"/>
+        </record>
+
+		<!-- Secuencia de asientos -->
+        <record id="ir_sequence_asientos" model="ir.sequence">
+            <field name="name">Secuencia de asientos</field>
+            <field name="implementation">standard</field>
+            <field name="active" eval="True"/>
+            <field name="prefix">%(range_year)s/</field>
+            <field name="use_date_range" eval="True"/>
+            <field name="padding">5</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!-- Rectificativa Secuencia -->
+        <record id="ir_sequence_asientos_rectificativa" model="ir.sequence">
+            <field name="name">Secuencia rectificativa de asientos</field>
+            <field name="implementation">no_gap</field>
+            <field name="active" eval="True"/>
+            <field name="prefix">RE/%(range_year)s/</field>
+            <field name="use_date_range" eval="True"/>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+
+		<!-- Diario Facturas de Cliente Servicios -->
+        <record id="account_jorunal_facturas_cliente_servicios" model="account.journal">
+            <field name="name">Facturas de cliente Servicios</field>
+            <field name="type">sale</field>
+            <field name="code">INV2</field>
+			<field name="journal_user" eval="True"/>
+            <field name="sequence_number_next">1</field>
+            <field name="sequence_id" ref="atz_pos.ir_sequence_asientos"/>
+            <field name="invoice_sequence_id" ref="atz_pos.ir_sequence_asientos"/>
+            <field name="refund_inv_sequence_id" ref="atz_pos.ir_sequence_asientos_rectificativa"/>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="update_posted" eval="True"/>
+        </record>
+
+		<!-- Diario Facturas de cliente Báscula -->
+        <record id="account_jorunal_facturas_cliente_bascula" model="account.journal">
+            <field name="name">Facturas de cliente Báscula</field>
+            <field name="type">sale</field>
+            <field name="code">POSS</field>
+			<field name="journal_user" eval="True"/>
+            <field name="sequence_number_next">1</field>
+            <field name="sequence_id" ref="atz_pos.ir_sequence_asientos"/>
+            <field name="invoice_sequence_id" ref="atz_pos.ir_sequence_asientos"/>
+            <field name="refund_inv_sequence_id" ref="atz_pos.ir_sequence_asientos_rectificativa"/>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="update_posted" eval="True"/>
+        </record>
+
+		
+    </data>
+</odoo>

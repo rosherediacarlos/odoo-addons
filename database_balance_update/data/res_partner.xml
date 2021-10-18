@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+(c) 2021 Carlos Ros  <cros@praxya.es>
+ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+ 
+-->
+<odoo>
+  <data noupdate="1">
+	<record model="res.partner" id="partner_cliente_contado">
+		<field name="name">Cliente Contado</field>
+		<field name="company_id" ref="base.main_company"/>
+		<field name="customer" eval="True"/>
+		<field name="active" eval="True"/>
+	</record>
+  </data>
+</odoo>

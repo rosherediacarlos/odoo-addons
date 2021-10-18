@@ -1,0 +1,22 @@
+<odoo>
+    <record id="account_payment_mode_form2" model="ir.ui.view">
+        <field name="name">invoice_account_number.account.payment.mode.form</field>
+        <field name="model">account.payment.mode</field>
+        <field name="inherit_id" ref="account_payment_mode.account_payment_mode_form"/>
+        <field name="arch" type="xml">
+            <field name="payment_type" position="before">
+                <field name="display_mode"/>
+            </field>
+        </field>
+    </record>
+    <record id="add_field_for_compute_account" model="ir.ui.view">
+        <field name="name">invoice_account_number.add_field_for_compute_account.form</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="before">
+                <field name="get_partner_id_bank" invisible="1" readonly="1"/>
+            </field>
+        </field>
+    </record>
+</odoo>

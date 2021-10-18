@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2021 Carlos Ros <cros@praxya.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <data>
+        <record id="invoice_import_error_form_view" model="ir.ui.view">
+            <field name="name">invoice.import.error.form.view</field>
+            <field name="model">invoice.import.error</field>
+            <field name="arch" type="xml">
+                <form string="Importar Facturas">
+                    <sheet>
+                        <group>
+                            <field name="line_number" required="True"/>
+                        </group>
+                        <group>
+                            <field name="import_date" required="True"/>
+                        </group>
+                        <field name="description" string="Descripción" placeholder="Descripción del error al importar"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="invoice_import_error_tree" model="ir.ui.view">
+            <field name="name">invoice.import.error.tree</field>
+            <field name="model">invoice.import.error</field>
+            <field name="arch" type="xml">
+                <tree string="Errores de importación">
+                    <field name="line_number"/>
+                    <field name="import_date"/>
+                    <field name="description"/>
+                    </tree>
+                </field>
+        </record>
+
+        <record id="invoice_import_error_action" model="ir.actions.act_window">
+            <field name="name">Errrores Importación</field>
+            <field name="res_model">invoice.import.error</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click para crear nuevo error de importación
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="invoice_import_error_menuitem"
+                  name="Errores de importación"
+                  parent="account.menu_finance_configuration"
+                  action="invoice_import_error_action"
+                  groups="account_invoice_force_number.group_allow_invoice_force_number"
+                  sequence="1000"/>
+
+    </data>
+</odoo>

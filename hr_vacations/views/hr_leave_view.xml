@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# (c) 2021 Praxya - Christian Doñate <cdonate@praxya.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <data>
+        <record id="hr_leave_inherit_form_view" model="ir.ui.view">
+            <field name="name">hr.leave.inherit.form.view</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_view_form_manager"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='holiday_type']" position="after">
+                    <field name="turn_id" attrs="{'invisible':[('turn_id','=',False)]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

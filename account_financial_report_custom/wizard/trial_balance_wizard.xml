@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="trial_balance_report_custom" model="ir.ui.view">
+            <field name="name">trial.balance.report.custom</field>
+            <field name="model">trial.balance.report.wizard</field>
+            <field name="inherit_id" ref="account_financial_report.trial_balance_wizard"/>
+            <field name="arch" type="xml"> 
+                <field name="foreign_currency" position="after">
+                    <field name="show_account_child"/>
+                </field>
+                <field name="journal_ids" position="after">
+                    <br/>
+                    <label for="account_analytic_id"/>
+                    <field name="account_analytic_id" attrs="{'required': [('show_account_child', '=', True)]}"/>
+                    
+                </field>
+            </field>
+        </record>              
+    
+    </data>
+</odoo>   

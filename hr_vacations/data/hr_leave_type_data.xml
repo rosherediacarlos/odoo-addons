@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<!-- Tipo de ausencia / Vacaciones-->
+	<record id="hr_leave_type_vacaciones" model="hr.leave.type">
+		<field name="name">Vacaciones</field>
+		<field name="request_unit">day</field>
+		<field name="sequence">100</field>
+		<field name="time_type">leave</field>
+		<field name="allocation_type">no</field>
+		<field name="auto_approve_policy" eval="'no'"></field>
+		<field name="exclude_public_holidays" eval="True"/>
+		<field name="color_name">red</field>
+		<field name="allocation_type">fixed</field>
+	</record>
+</odoo>

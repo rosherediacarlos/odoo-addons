@@ -1,0 +1,435 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* atzeneta_import_phone_invoice_wizard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-20 12:28+0000\n"
+"PO-Revision-Date: 2021-08-20 12:28+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.product,name:atzeneta_import_phone_invoice_wizard.product_product_multilinea
+#: model:product.template,name:atzeneta_import_phone_invoice_wizard.product_product_multilinea_product_template
+msgid "CUOTA TP NUMERO PROPIOS MULTILINEA"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model_terms:ir.ui.view,arch_db:atzeneta_import_phone_invoice_wizard.wizard_import_phone_invoice_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model_terms:ir.actions.act_window,help:atzeneta_import_phone_invoice_wizard.phone_import_map_action
+#: model_terms:ir.actions.act_window,help:atzeneta_import_phone_invoice_wizard.phone_import_map_format_action
+msgid "Click for create a new phone map to import file."
+msgstr "Click para crear un nuevo mapeo de importación de ficheros"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model_terms:ir.actions.act_window,help:atzeneta_import_phone_invoice_wizard.res_partner_phone_action
+msgid "Click for create a new rate mobil phone."
+msgstr "Click para crear una nueva tarifa para un cliente"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model,name:atzeneta_import_phone_invoice_wizard.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map__create_uid
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_format__create_uid
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_line__create_uid
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_res_partner_phone__create_uid
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_wizard_import_phone_invoice__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map__create_date
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_format__create_date
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_line__create_date
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_res_partner_phone__create_date
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_wizard_import_phone_invoice__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_res_partner_phone__partner_id
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_line__name
+msgid "Description"
+msgstr "Descripción"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map__display_name
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_format__display_name
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_line__display_name
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_res_partner_phone__display_name
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_wizard_import_phone_invoice__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_wizard_import_phone_invoice__file_data
+msgid "File"
+msgstr "Archivo"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_format__text_format
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_line__format_id
+msgid "Format"
+msgstr "Formato"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map__name
+msgid "Header code"
+msgstr "Codigo Cabecera"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map__id
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_format__id
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_line__id
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_res_partner_phone__id
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_wizard_import_phone_invoice__id
+msgid "ID"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_line__import_map_id
+msgid "Import map id"
+msgstr "ID Mapeo importación"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model_terms:ir.ui.view,arch_db:atzeneta_import_phone_invoice_wizard.wizard_import_phone_invoice_form_view
+msgid "Importar"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model_terms:ir.ui.view,arch_db:atzeneta_import_phone_invoice_wizard.wizard_import_phone_invoice_form_view
+msgid "Importar Facturas"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.actions.act_window,name:atzeneta_import_phone_invoice_wizard.wizard_import_phone_invoice_action
+#: model:ir.ui.menu,name:atzeneta_import_phone_invoice_wizard.wizard_import_phone_invoice_menuitem
+msgid "Importar Facturas Telefonia"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: code:addons/atzeneta_import_phone_invoice_wizard/wizards/wizard_import_phone_invoice.py:204
+#: code:addons/repos/atzeneta/atzeneta-addons/atzeneta_import_phone_invoice_wizard/wizards/wizard_import_phone_invoice.py:204
+#, python-format
+msgid "Invoice Phone:"
+msgstr "Factura Telefono:"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_line__line_key
+msgid "Key"
+msgstr "Clave"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map____last_update
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_format____last_update
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_line____last_update
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_res_partner_phone____last_update
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_wizard_import_phone_invoice____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map__write_uid
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_format__write_uid
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_line__write_uid
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_res_partner_phone__write_uid
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_wizard_import_phone_invoice__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map__write_date
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_format__write_date
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_line__write_date
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_res_partner_phone__write_date
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_wizard_import_phone_invoice__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_line__length
+msgid "Length"
+msgstr "Longitud"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.template,name:atzeneta_import_phone_invoice_wizard.phone_import_map_line_13_product_template
+msgid "Libre"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map__import_map_line_ids
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model_terms:ir.ui.view,arch_db:atzeneta_import_phone_invoice_wizard.phone_import_map_form
+msgid "Mapping Lines"
+msgstr "Líneas de mapeo"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.template,name:atzeneta_import_phone_invoice_wizard.phone_import_map_line_11_product_template
+msgid "Nº de Extensión móvil"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.product,name:atzeneta_import_phone_invoice_wizard.product_product_pack_adsl2
+#: model:product.template,name:atzeneta_import_phone_invoice_wizard.product_product_pack_adsl2_product_template
+msgid "PACK ADSL2 (ADSL+ TP15)"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.product,name:atzeneta_import_phone_invoice_wizard.product_product_pack_fibra
+#: model:product.template,name:atzeneta_import_phone_invoice_wizard.product_product_pack_fibra_product_template
+msgid "PACK FIBRA"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_res_partner_phone__phone
+msgid "Phone"
+msgstr "Teléfono"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.actions.act_window,name:atzeneta_import_phone_invoice_wizard.phone_import_map_action
+#: model:ir.actions.act_window,name:atzeneta_import_phone_invoice_wizard.phone_import_map_format_action
+#: model_terms:ir.ui.view,arch_db:atzeneta_import_phone_invoice_wizard.phone_import_map_form
+#: model_terms:ir.ui.view,arch_db:atzeneta_import_phone_invoice_wizard.phone_import_map_format_form
+#: model_terms:ir.ui.view,arch_db:atzeneta_import_phone_invoice_wizard.phone_import_map_tree
+#: model_terms:ir.ui.view,arch_db:atzeneta_import_phone_invoice_wizard.phone_import_map_tree_form
+#: model_terms:ir.ui.view,arch_db:atzeneta_import_phone_invoice_wizard.res_partner_phone_form
+#: model_terms:ir.ui.view,arch_db:atzeneta_import_phone_invoice_wizard.res_partner_phone_tree
+msgid "Phone Import Map"
+msgstr "Mapeo de importación de Telefónica"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.ui.menu,name:atzeneta_import_phone_invoice_wizard.phone_import_map_format_menuitem
+msgid "Phone Import Map Format"
+msgstr "Formato para mapeo de importación"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.ui.menu,name:atzeneta_import_phone_invoice_wizard.phone_import_map_menuitem
+msgid "Phone import map"
+msgstr "Mapeo de importación de Telefónica"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_res_partner__phone_list_ids
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_res_users__phone_list_ids
+msgid "Phone list"
+msgstr "Lista Telefonos"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.ui.menu,name:atzeneta_import_phone_invoice_wizard.phone_import_map_parent_menuitem
+msgid "Phone map config"
+msgstr "Configuración Mapeo Telefónica"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_line__position
+msgid "Position"
+msgstr "Posición"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model,name:atzeneta_import_phone_invoice_wizard.model_product_product
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_res_partner_phone__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.actions.act_window,name:atzeneta_import_phone_invoice_wizard.res_partner_phone_action
+#: model:ir.ui.menu,name:atzeneta_import_phone_invoice_wizard.res_partner_phone_menuitem
+msgid "Rate Phone"
+msgstr "Tarifas Telefono"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_line__number_repeat
+msgid "Repeat"
+msgstr "Repetir"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.product,name:atzeneta_import_phone_invoice_wizard.product_product_servicio_llamdas
+#: model:product.template,name:atzeneta_import_phone_invoice_wizard.product_product_servicio_llamdas_product_template
+msgid "Servicio llamadas telefónicas"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: selection:wizard.import.phone.invoice,invoice_type:0
+msgid "Simple Invoice"
+msgstr "Factura Simplificada"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.product,name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_15
+#: model:product.template,name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_15_product_template
+msgid "TARIFA PLANA COOP 15"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.product,name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_20
+#: model:product.template,name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_20_product_template
+msgid "TARIFA PLANA COOP 20"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.product,name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_25
+#: model:product.template,name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_25_product_template
+msgid "TARIFA PLANA COOP 25"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.product,name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_35
+#: model:product.template,name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_35_product_template
+msgid "TARIFA PLANA COOP 35"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.product,name:atzeneta_import_phone_invoice_wizard.product_product_fibra_1
+#: model:product.template,name:atzeneta_import_phone_invoice_wizard.product_product_fibra_1_product_template
+msgid "TARIFA PROMOFIBRA 1"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.product,name:atzeneta_import_phone_invoice_wizard.product_product_fibra_2
+#: model:product.template,name:atzeneta_import_phone_invoice_wizard.product_product_fibra_2_product_template
+msgid "TARIFA PROMOFIBRA 2"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.product,name:atzeneta_import_phone_invoice_wizard.product_product_fibra_3
+#: model:product.template,name:atzeneta_import_phone_invoice_wizard.product_product_fibra_3_product_template
+msgid "TARIFA PROMOFIBRA 3"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model_terms:ir.ui.view,arch_db:atzeneta_import_phone_invoice_wizard.phone_import_map_form
+#: model_terms:ir.ui.view,arch_db:atzeneta_import_phone_invoice_wizard.res_partner_telephone_rate_list_form_view
+msgid "Telephone rate list"
+msgstr "Lista de tarifas telefónicas"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_product_product__is_telephone_rate_product
+msgid "Telephone rate product"
+msgstr "Lista de tarifas telefónicas"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.template,name:atzeneta_import_phone_invoice_wizard.phone_import_map_line_12_product_template
+msgid "Tipo de Extensión"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_format__name
+msgid "Type"
+msgstr "Tipo"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_wizard_import_phone_invoice__invoice_type
+msgid "Type of invoice"
+msgstr "Tipo de factura"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.product,uom_name:atzeneta_import_phone_invoice_wizard.product_product_fibra_1
+#: model:product.product,uom_name:atzeneta_import_phone_invoice_wizard.product_product_fibra_2
+#: model:product.product,uom_name:atzeneta_import_phone_invoice_wizard.product_product_fibra_3
+#: model:product.product,uom_name:atzeneta_import_phone_invoice_wizard.product_product_multilinea
+#: model:product.product,uom_name:atzeneta_import_phone_invoice_wizard.product_product_pack_adsl2
+#: model:product.product,uom_name:atzeneta_import_phone_invoice_wizard.product_product_pack_fibra
+#: model:product.product,uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_15
+#: model:product.product,uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_20
+#: model:product.product,uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_25
+#: model:product.product,uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_35
+#: model:product.product,uom_name:atzeneta_import_phone_invoice_wizard.product_product_servicio_llamdas
+#: model:product.template,uom_name:atzeneta_import_phone_invoice_wizard.phone_import_map_line_11_product_template
+#: model:product.template,uom_name:atzeneta_import_phone_invoice_wizard.phone_import_map_line_12_product_template
+#: model:product.template,uom_name:atzeneta_import_phone_invoice_wizard.phone_import_map_line_13_product_template
+#: model:product.template,uom_name:atzeneta_import_phone_invoice_wizard.product_product_fibra_1_product_template
+#: model:product.template,uom_name:atzeneta_import_phone_invoice_wizard.product_product_fibra_2_product_template
+#: model:product.template,uom_name:atzeneta_import_phone_invoice_wizard.product_product_fibra_3_product_template
+#: model:product.template,uom_name:atzeneta_import_phone_invoice_wizard.product_product_multilinea_product_template
+#: model:product.template,uom_name:atzeneta_import_phone_invoice_wizard.product_product_pack_adsl2_product_template
+#: model:product.template,uom_name:atzeneta_import_phone_invoice_wizard.product_product_pack_fibra_product_template
+#: model:product.template,uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_15_product_template
+#: model:product.template,uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_20_product_template
+#: model:product.template,uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_25_product_template
+#: model:product.template,uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_35_product_template
+#: model:product.template,uom_name:atzeneta_import_phone_invoice_wizard.product_product_servicio_llamdas_product_template
+msgid "Unit(s)"
+msgstr "Unidad(es)"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_phone_import_map_line__value
+msgid "Value"
+msgstr "Valor"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model.fields,field_description:atzeneta_import_phone_invoice_wizard.field_wizard_import_phone_invoice__date_invoice
+msgid "invoice date"
+msgstr "Fecha factura"
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:product.product,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_fibra_1
+#: model:product.product,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_fibra_2
+#: model:product.product,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_fibra_3
+#: model:product.product,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_multilinea
+#: model:product.product,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_pack_adsl2
+#: model:product.product,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_pack_fibra
+#: model:product.product,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_15
+#: model:product.product,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_20
+#: model:product.product,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_25
+#: model:product.product,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_35
+#: model:product.product,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_servicio_llamdas
+#: model:product.template,weight_uom_name:atzeneta_import_phone_invoice_wizard.phone_import_map_line_11_product_template
+#: model:product.template,weight_uom_name:atzeneta_import_phone_invoice_wizard.phone_import_map_line_12_product_template
+#: model:product.template,weight_uom_name:atzeneta_import_phone_invoice_wizard.phone_import_map_line_13_product_template
+#: model:product.template,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_fibra_1_product_template
+#: model:product.template,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_fibra_2_product_template
+#: model:product.template,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_fibra_3_product_template
+#: model:product.template,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_multilinea_product_template
+#: model:product.template,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_pack_adsl2_product_template
+#: model:product.template,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_pack_fibra_product_template
+#: model:product.template,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_15_product_template
+#: model:product.template,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_20_product_template
+#: model:product.template,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_25_product_template
+#: model:product.template,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_plana_coop_35_product_template
+#: model:product.template,weight_uom_name:atzeneta_import_phone_invoice_wizard.product_product_servicio_llamdas_product_template
+msgid "kg"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model,name:atzeneta_import_phone_invoice_wizard.model_phone_import_map
+msgid "phone.import.map"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model,name:atzeneta_import_phone_invoice_wizard.model_phone_import_map_format
+msgid "phone.import.map.format"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model,name:atzeneta_import_phone_invoice_wizard.model_phone_import_map_line
+msgid "phone.import.map.line"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model,name:atzeneta_import_phone_invoice_wizard.model_res_partner_phone
+msgid "res.partner.phone"
+msgstr ""
+
+#. module: atzeneta_import_phone_invoice_wizard
+#: model:ir.model,name:atzeneta_import_phone_invoice_wizard.model_wizard_import_phone_invoice
+msgid "wizard.import.phone.invoice"
+msgstr ""
+

@@ -1,0 +1,141 @@
+<odoo>
+    <data noupdate="1">
+        <record id="phone_import_map_340" model="phone.import.map">
+            <field name="name">340</field>
+        </record>
+
+		<record id="phone_import_map_340_line_1" model="phone.import.map.line">
+            <field name="name">Tipo de registro</field>
+			<field name="length">3</field>
+			<field name="format_id" ref="phone_import_map_format_number"/>
+			<field name="value">340</field>
+			<field name="position">1</field>
+			<field name="line_key">type</field>
+			<field name="import_map_id" ref="phone_import_map_340"/>
+        </record>
+
+		<record id="phone_import_map_340_line_2" model="phone.import.map.line">
+            <field name="name">Secuencia de registro</field>
+			<field name="length">6</field>
+			<field name="format_id" ref="phone_import_map_format_number"/>
+			<field name="value"></field>
+			<field name="position">4</field>
+			<field name="line_key">sequence</field>
+			<field name="import_map_id" ref="phone_import_map_340"/>
+        </record>
+
+		<record id="phone_import_map_340_line_3" model="phone.import.map.line">
+            <field name="name">Número de factura</field>
+			<field name="length">14</field>
+			<field name="format_id" ref="phone_import_map_format_char"/>
+			<field name="value"></field>
+			<field name="position">10</field>
+			<field name="line_key">invoice_number</field>
+			<field name="import_map_id" ref="phone_import_map_340"/>
+        </record>
+
+		<record id="phone_import_map_340_line_4" model="phone.import.map.line">
+            <field name="name">Número de prefactura</field>
+			<field name="length">14</field>
+			<field name="format_id" ref="phone_import_map_format_char"/>
+			<field name="value"></field>
+			<field name="position">24</field>
+			<field name="line_key">pre_invoice_number</field>
+			<field name="import_map_id" ref="phone_import_map_340"/>
+        </record>
+
+		<record id="phone_import_map_340_line_5" model="phone.import.map.line">
+            <field name="name">Número de teléfono</field>
+			<field name="length">9</field>
+			<field name="format_id" ref="phone_import_map_format_char"/>
+			<field name="value"></field>
+			<field name="position">38</field>
+			<field name="line_key">pre_invoice_number</field>
+			<field name="import_map_id" ref="phone_import_map_340"/>
+        </record>
+
+		<record id="phone_import_map_340_line_6" model="phone.import.map.line">
+            <field name="name">Número de extensión</field>
+			<field name="length">9</field>
+			<field name="format_id" ref="phone_import_map_format_char"/>
+			<field name="value"></field>
+			<field name="position">47</field>
+			<field name="line_key">extensio_number</field>
+			<field name="import_map_id" ref="phone_import_map_340"/>
+        </record>
+
+		<record id="phone_import_map_340_line_8" model="phone.import.map.line">
+            <field name="name">Código de Vario</field>
+			<field name="length">3</field>
+			<field name="format_id" ref="phone_import_map_format_char"/>
+			<field name="value"></field>
+			<field name="position">56</field>
+			<field name="number_repeat">5</field>
+			<field name="line_key">varius_code</field>
+			<field name="import_map_id" ref="phone_import_map_340"/>
+        </record>
+
+		<record id="phone_import_map_340_line_9" model="phone.import.map.line">
+            <field name="name">Descripción de vario</field>
+			<field name="length">100</field>
+			<field name="format_id" ref="phone_import_map_format_char"/>
+			<field name="value"></field>
+			<field name="position">71</field>
+			<field name="number_repeat">5</field>
+			<field name="line_key">varius_desciption</field>
+			<field name="import_map_id" ref="phone_import_map_340"/>
+        </record>
+
+		<record id="phone_import_map_340_line_10" model="phone.import.map.line">
+            <field name="name">Importe</field>
+			<field name="length">10,4</field>
+			<field name="format_id" ref="phone_import_map_format_number"/>
+			<field name="value"></field>
+			<field name="position">571</field>
+			<field name="number_repeat">5</field>
+			<field name="line_key">amount</field>
+			<field name="import_map_id" ref="phone_import_map_340"/>
+        </record>
+
+		<record id="phone_import_map_340_line_11" model="phone.import.map.line">
+            <field name="name">Nº De Cabecera móvil</field>
+			<field name="length">9</field>
+			<field name="format_id" ref="phone_import_map_format_char"/>
+			<field name="value"></field>
+			<field name="position">641</field>
+			<field name="line_key">mobile_header</field>
+			<field name="import_map_id" ref="phone_import_map_340"/>
+        </record>
+
+		<record id="phone_import_map_340_line_12" model="phone.import.map.line">
+            <field name="name">Nº De Extension móvil</field>
+			<field name="length">9</field>
+			<field name="format_id" ref="phone_import_map_format_char"/>
+			<field name="value"></field>
+			<field name="position">650</field>
+			<field name="line_key">mobile_extension</field>
+			<field name="import_map_id" ref="phone_import_map_340"/>
+        </record>
+
+		<record id="phone_import_map_340_line_13" model="phone.import.map.line">
+            <field name="name">Tipo de Extension</field>
+			<field name="length">25</field>
+			<field name="format_id" ref="phone_import_map_format_char"/>
+			<field name="value"></field>
+			<field name="position">659</field>
+			<field name="line_key">type_extension</field>
+			<field name="import_map_id" ref="phone_import_map_340"/>
+        </record>
+
+		<record id="phone_import_map_340_line_14" model="phone.import.map.line">
+            <field name="name">Libre</field>
+			<field name="length">17</field>
+			<field name="format_id" ref="phone_import_map_format_char"/>
+			<field name="value"></field>
+			<field name="position">684</field>
+			<field name="line_key">free</field>
+			<field name="import_map_id" ref="phone_import_map_340"/>
+        </record>
+
+    </data>
+</odoo>
